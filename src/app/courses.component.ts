@@ -13,11 +13,13 @@ import { CoursesService } from './course/courses.service';
                 <td [attr.colspan]="colSpan"></td> <!-- this is attribute binding syntax -->
             </tr>
         </table>
-        <button class="btn btn-primary">Save</button>
+        <!-- class binding syntax -->
+        <button class="btn btn-primary" [class.active]="isActive">Save</button>
     `
 })
 export class CoursesComponent {
     title = "List of courses"; // field
     imageUrl = "https://picsum.photos/400/200?image=2";
     colSpan = 2;
+    isActive = false;
 }
