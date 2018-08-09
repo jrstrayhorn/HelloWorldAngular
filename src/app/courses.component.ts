@@ -32,6 +32,8 @@ import { CoursesService } from './course/courses.service';
         {{ course.rating | number:'1.2-2' }} <br/>
         {{ course.price | currency:'AUD':true:'3.2-2' }} <br/>
         {{ course.releaseDate | date:'shortDate' }}
+        <br/>
+        {{ text | summary:10 }}
     `
 })
 export class CoursesComponent {
@@ -47,6 +49,9 @@ export class CoursesComponent {
         price: 190.95,
         releaseDate: new Date(2016, 3, 1)
     };
+    text = `
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id libero mi. Aenean semper efficitur est rutrum dignissim. Cras vel arcu a urna condimentum venenatis ac vel leo. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Etiam mattis tincidunt turpis at euismod. Cras consectetur at arcu vitae aliquet. Sed tincidunt ultricies molestie.
+    `
 
     onDivClicked() {
         console.log("Div was clicked");
