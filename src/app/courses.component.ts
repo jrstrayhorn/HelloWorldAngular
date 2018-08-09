@@ -15,7 +15,11 @@ import { CoursesService } from './course/courses.service';
         </table>
         <!-- class binding syntax -->
         <button class="btn btn-primary" [class.active]="isActive">Save</button>
+        <!-- style binding syntax -->
         <button [style.backgroundColor]="isActive ? 'blue' : 'white'">OK</button>
+        <div (click)="onDivClicked()">
+        <button (click)="onSave($event)">Do Something</button>
+        </div>
     `
 })
 export class CoursesComponent {
@@ -23,4 +27,15 @@ export class CoursesComponent {
     imageUrl = "https://picsum.photos/400/200?image=2";
     colSpan = 2;
     isActive = false;
+
+    onDivClicked() {
+        console.log("Div was clicked");
+    }
+
+    onSave($event) {
+        // $event is known to angular, represent the 
+        // standard DOM event
+        $event.stopPropagation(); // event will not bubble up
+        console.log("Button was clicked", $event);
+    }
 }
