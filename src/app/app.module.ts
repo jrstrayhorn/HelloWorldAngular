@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms'; // need to add this to use ngModel for 2-way binding
 
 import { AppComponent } from './app.component';
 import { CoursesComponent } from './courses.component';

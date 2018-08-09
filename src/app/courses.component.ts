@@ -26,6 +26,12 @@ import { CoursesService } from './course/courses.service';
         <input [value]="email" (keyup.enter)="onKeyUp()" />
         <!-- use Banana in a box syntax for 2-way binding -->
         <input [(ngModel)]="email" (keyup.enter)="onKeyUp()" />
+        <br/>
+        {{ course.title | uppercase | lowercase }} <br/>
+        {{ course.students | number }} <br/>
+        {{ course.rating | number:'1.2-2' }} <br/>
+        {{ course.price | currency:'AUD':true:'3.2-2' }} <br/>
+        {{ course.releaseDate | date:'shortDate' }}
     `
 })
 export class CoursesComponent {
@@ -34,6 +40,13 @@ export class CoursesComponent {
     colSpan = 2;
     isActive = false;
     email = "me@example.com"; // encapsulate data
+    course = {
+        title: "The Complete Angular Course",
+        rating: 4.9745,
+        students: 30123,
+        price: 190.95,
+        releaseDate: new Date(2016, 3, 1)
+    };
 
     onDivClicked() {
         console.log("Div was clicked");
