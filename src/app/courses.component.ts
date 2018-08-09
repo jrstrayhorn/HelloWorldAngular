@@ -17,9 +17,11 @@ import { CoursesService } from './course/courses.service';
         <button class="btn btn-primary" [class.active]="isActive">Save</button>
         <!-- style binding syntax -->
         <button [style.backgroundColor]="isActive ? 'blue' : 'white'">OK</button>
+        <!-- event binding syntax -->
         <div (click)="onDivClicked()">
-        <button (click)="onSave($event)">Do Something</button>
+            <button (click)="onSave($event)">Do Something</button>
         </div>
+        <input (keyup.enter)="onKeyUp()" />
     `
 })
 export class CoursesComponent {
@@ -37,5 +39,9 @@ export class CoursesComponent {
         // standard DOM event
         $event.stopPropagation(); // event will not bubble up
         console.log("Button was clicked", $event);
+    }
+
+    onKeyUp() {
+        console.log("ENTER was pressed");
     }
 }
