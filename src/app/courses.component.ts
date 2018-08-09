@@ -30,7 +30,7 @@ import { CoursesService } from './course/courses.service';
         {{ course.title | uppercase | lowercase }} <br/>
         {{ course.students | number }} <br/>
         {{ course.rating | number:'1.2-2' }} <br/>
-        {{ course.price | currency:'AUD':true:'3.2-2' }} <br/>
+        {{ course.price | currency:'AUD':'symbol':'3.2-2' }} <br/>
         {{ course.releaseDate | date:'shortDate' }}
         <br/>
         {{ text | summary:10 }}
