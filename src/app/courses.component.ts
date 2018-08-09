@@ -1,5 +1,6 @@
 
 import { Component } from '@angular/core';
+import { CoursesService } from './course/courses.service';
 
 @Component({
     selector: 'courses', // <courses> - new custom HTML element
@@ -34,6 +35,21 @@ export class CoursesComponent {
         // just how to display courses
 
         // should use a service for this!!
+
+        // now service has a dependency to CoursesService if we change
+        // course service constructuor it's ok Angular with add new
+        // courses service object
+        // now unit testing.. we can supply a fake implementation
+        // that doesn't used HTTP service
+    constructor(service: CoursesService) {
+        // new is glue here.. we've tightly coupled the courses component
+        // to the CoursesService.. we won't be able to unit test this
+
+        // in the future if we add a parameter to courses service we'd have to 
+        // manually add new arguments EVERYWHERE, very fragile
+        //let service = new CoursesService();
+        this.courses = service.getCourses();
+    }
 
     getTitle() {
         return this.title;
