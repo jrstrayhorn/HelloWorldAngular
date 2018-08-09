@@ -23,7 +23,9 @@ import { CoursesService } from './course/courses.service';
         </div>
         <!-- event filtering syntax with .enter --> 
         <!-- #email is a reference to the HTML element, template variable syntax -->
-        <input #email (keyup.enter)="onKeyUp(email.value)" />
+        <input [value]="email" (keyup.enter)="onKeyUp()" />
+        <!-- use Banana in a box syntax for 2-way binding -->
+        <input [(ngModel)]="email" (keyup.enter)="onKeyUp()" />
     `
 })
 export class CoursesComponent {
@@ -31,6 +33,7 @@ export class CoursesComponent {
     imageUrl = "https://picsum.photos/400/200?image=2";
     colSpan = 2;
     isActive = false;
+    email = "me@example.com"; // encapsulate data
 
     onDivClicked() {
         console.log("Div was clicked");
@@ -43,7 +46,8 @@ export class CoursesComponent {
         console.log("Button was clicked", $event);
     }
 
-    onKeyUp(email) {
-        console.log(email);
+    // logic for view
+    onKeyUp() {
+        console.log(this.email);
     }
 }
