@@ -13,6 +13,7 @@ import { CoursesService } from './course/courses.service';
                 <td [attr.colspan]="colSpan"></td> <!-- this is attribute binding syntax -->
             </tr>
         </table>
+        <button class="btn btn-primary">Save</button>
     `
 })
 export class CoursesComponent {
