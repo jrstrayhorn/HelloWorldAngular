@@ -21,7 +21,9 @@ import { CoursesService } from './course/courses.service';
         <div (click)="onDivClicked()">
             <button (click)="onSave($event)">Do Something</button>
         </div>
-        <input (keyup.enter)="onKeyUp()" />
+        <!-- event filtering syntax with .enter --> 
+        <!-- #email is a reference to the HTML element, template variable syntax -->
+        <input #email (keyup.enter)="onKeyUp(email.value)" />
     `
 })
 export class CoursesComponent {
@@ -41,7 +43,7 @@ export class CoursesComponent {
         console.log("Button was clicked", $event);
     }
 
-    onKeyUp() {
-        console.log("ENTER was pressed");
+    onKeyUp(email) {
+        console.log(email);
     }
 }
