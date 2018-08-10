@@ -11,7 +11,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class FavoriteComponent implements OnInit {
   // use alias to keep contract of component stable
   @Input('is-favorite') isFavorite: boolean;  // defaults to false
-  @Output() change = new EventEmitter();
+  @Output('on-change') change = new EventEmitter(); // can use alias here as well
 
   constructor() { 
   }
