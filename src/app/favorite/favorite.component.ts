@@ -18,10 +18,14 @@ export class FavoriteComponent implements OnInit {
 
   onClick() {
     this.isFavorite = !this.isFavorite;
-    this.change.emit();
+    this.change.emit({ newValue: this.isFavorite });
   }
 
   ngOnInit() {
   }
 
+}
+
+export interface FavoriteChangedEventArgs {
+  newValue: boolean
 }

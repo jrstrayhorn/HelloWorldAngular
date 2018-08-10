@@ -3,5 +3,7 @@
     this will make up the public api for the component
     Allowing us to pass in state via input parameters
     and raise events via output parameters
+
+    $event anything passed when raising an event
 -->
-<favorite [is-favorite]="post.isFavorite" (change)="onFavoriteChanged()"></favorite>
+<favorite [is-favorite]="post.isFavorite" (change)="onFavoriteChanged($event)"></favorite>
