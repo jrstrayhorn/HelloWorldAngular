@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
 
 // can also use Component, inputs metadata and list the field
 // BUT this will introduce magic strings that wont get updated
@@ -6,19 +6,13 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'favorite',
   templateUrl: './favorite.component.html',
-  styleUrls: ['./favorite.component.css'], // can add one or more css styles
-  styles: [
-    `
-    .glyphicon {
-      color: green;
-  }
-    `
-  ]
+  styleUrls: ['./favorite.component.css'],
+  encapsulation: ViewEncapsulation.Emulated // 99.9% of the time you really don't need to use this property
 })
-// angular will only pick the style listed last, it will override or ignore previous files
-// which explains why star is small and not larger like defined in favorite.component.css
-// really need to pick only one approach, style in template will override all other styles
-// styles are scoped to the component only.. only styled in this component
+// ViewEnacapsulation enum allows you to change how Angular scopes styles via shadow DOM
+// Emulated - Angular will emulate Shadow DOM using its own framework since some browser don't do shadow DOM
+// None - Angular won't provide any template or style encapsulation
+// ShadowDom - use built-in browser Shadow DOM to encapsulate styles (won't work on all browsers)
 export class FavoriteComponent {
   // use alias to keep contract of component stable
   @Input('is-favorite') isFavorite: boolean;  // defaults to false
