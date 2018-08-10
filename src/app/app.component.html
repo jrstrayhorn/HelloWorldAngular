@@ -1,1 +1,7 @@
-<title-case></title-case>
+<!-- 
+    Need to add input and output parameters for re-usable components
+    this will make up the public api for the component
+    Allowing us to pass in state via input parameters
+    and raise events via output parameters
+-->
+<favorite [isFavorite]="post.isFavorite" (change)="onFavoriteChange()"></favorite>
