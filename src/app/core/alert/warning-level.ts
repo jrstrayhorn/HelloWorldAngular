@@ -1,0 +1,1 @@
+export enum AlertLevel { Success, Info, Warning, Danger }

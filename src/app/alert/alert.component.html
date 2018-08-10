@@ -1,0 +1,10 @@
+<div 
+  class="alert"
+  [class.alert-success]="isSuccess"
+  [class.alert-info]="isInfo"
+  [class.alert-warning]="isWarning"
+  [class.alert-danger]="isDanger" 
+>
+  <ng-content></ng-content>
+  <span><strong>{{ alertMsg.title }}</strong> {{ alertMsg.message }}</span>  
+</div>
