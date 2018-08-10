@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 // can also use Component, inputs metadata and list the field
 // BUT this will introduce magic strings that wont get updated
@@ -11,12 +11,14 @@ import { Component, OnInit, Input } from '@angular/core';
 export class FavoriteComponent implements OnInit {
   // use alias to keep contract of component stable
   @Input('is-favorite') isFavorite: boolean;  // defaults to false
+  @Output() change = new EventEmitter();
 
   constructor() { 
   }
 
   onClick() {
     this.isFavorite = !this.isFavorite;
+    this.change.emit();
   }
 
   ngOnInit() {
