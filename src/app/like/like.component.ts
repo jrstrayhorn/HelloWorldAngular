@@ -5,14 +5,9 @@ import { Component, OnInit, Input } from '@angular/core';
   templateUrl: './like.component.html',
   styleUrls: ['./like.component.css']
 })
-export class LikeComponent implements OnInit {
-  @Input() likesCount: number;
-  @Input() isActive: boolean;
-
-  constructor() { }
-
-  ngOnInit() {
-  }
+export class LikeComponent {
+  @Input('likesCount') likesCount: number;
+  @Input('isActive') isActive: boolean;
 
   onClick() {
     this.likesCount += (this.isActive) ? -1 : 1;
