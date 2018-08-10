@@ -1,0 +1,8 @@
+.glyphicon {
+    color: #ccc;
+    font-size: 24px;
+}
+
+.glyphicon.active {
+    color: deeppink;
+}

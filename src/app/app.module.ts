@@ -14,6 +14,7 @@ import { TitleCaseComponent } from './title-case/title-case.component';
 import { TitleCasePipe } from './title-case.pipe';
 import { PanelComponent } from './panel/panel.component';
 import { AlertComponent } from './alert/alert.component';
+import { LikeComponent } from './like/like.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { AlertComponent } from './alert/alert.component';
     TitleCaseComponent,
     TitleCasePipe,
     PanelComponent,
-    AlertComponent
+    AlertComponent,
+    LikeComponent
   ],
   imports: [
     BrowserModule,
