@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'zippy',
@@ -9,12 +9,8 @@ export class ZippyComponent {
   @Input('title') title;
   isExpanded: boolean;
 
-  constructor() {
-  }
-
-  onClick() {
+  toggle() {
     this.isExpanded = !this.isExpanded;
-    console.log(this.isExpanded);
   }
 
 }

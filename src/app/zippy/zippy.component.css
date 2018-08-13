@@ -1,5 +1,6 @@
 .panel-heading {
     cursor: pointer;
+    font-weight: bold;
 }
 
 .expanded {
