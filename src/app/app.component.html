@@ -1,7 +1,2 @@
 
-<span>{{ task.assignee?.name }}</span>
-
-<!-- Safe Traversal Operator, ? indicates if assignee is null or undefined,
-    angular will safely ignore it.. and render an empty span to the DOM
-    otherwise it will show the name
--->
+<input type="text" [appInputFormat]="'uppercase'">
