@@ -23,9 +23,7 @@
     <label for="category">Category</label>
     <select required ngModel #category="ngModel" name="category" id="category" class="form-control">
       <option value=""></option>
-      <option value="1">Development</option>
-      <option value="2">Art</option>
-      <option value="3">Language</option>
+      <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
     </select>
     <div class="alert alert-danger" *ngIf="category.touched && !category.valid">
       <div *ngIf="category.errors.required">
