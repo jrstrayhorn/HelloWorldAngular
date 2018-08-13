@@ -1,0 +1,7 @@
+.panel-heading {
+    cursor: pointer;
+}
+
+.expanded {
+    background-color: #ccc;
+}
