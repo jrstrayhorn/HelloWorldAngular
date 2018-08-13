@@ -8,4 +8,7 @@ import { Component } from '@angular/core';
 export class ContactFormComponent {
   log(x) { console.log(x) }
 
+  submit(f) {
+    // f.value is a json object that we could send to the server for persistence
+  }
 }
