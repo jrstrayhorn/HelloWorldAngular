@@ -1,1 +1,13 @@
-<favorite></favorite>
+<button
+    [style.backgroundColor]="canSave ? 'blue': 'gray'"
+    [style.color]="canSave ? 'white': 'black'"
+    [style.fontWeight]="canSave ? 'bold': 'normal'"
+    [ngStyle]="{
+        'backgroundColor': canSave? 'blue': 'gray'
+        'color': canSave? 'white': 'black'
+    }"
+>
+    Save
+</button>
+
+<!-- use either style bindings or the ngStyle attribute directive -->
