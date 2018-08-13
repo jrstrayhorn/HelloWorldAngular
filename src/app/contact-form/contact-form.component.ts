@@ -10,5 +10,6 @@ export class ContactFormComponent {
 
   submit(f) {
     // f.value is a json object that we could send to the server for persistence
+    console.log(f);
   }
 }
