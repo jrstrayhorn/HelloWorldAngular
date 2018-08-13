@@ -1,13 +1,7 @@
-<button
-    [style.backgroundColor]="canSave ? 'blue': 'gray'"
-    [style.color]="canSave ? 'white': 'black'"
-    [style.fontWeight]="canSave ? 'bold': 'normal'"
-    [ngStyle]="{
-        'backgroundColor': canSave? 'blue': 'gray'
-        'color': canSave? 'white': 'black'
-    }"
->
-    Save
-</button>
 
-<!-- use either style bindings or the ngStyle attribute directive -->
+<span>{{ task.assignee?.name }}</span>
+
+<!-- Safe Traversal Operator, ? indicates if assignee is null or undefined,
+    angular will safely ignore it.. and render an empty span to the DOM
+    otherwise it will show the name
+-->

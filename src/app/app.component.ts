@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  canSave = false;
+  task = {
+    title: 'Review applications',
+    assignee: null
+  }
 }
