@@ -1,4 +1,14 @@
-<span class="glyphicon" 
-  [class.glyphicon-star-empty]="!isFavorite" 
-  [class.glyphicon-star]="isFavorite"
-  (click)="onClick()"></span>
+<span 
+  class="glyphicon" 
+  [ngClass]="{
+    'glyphicon-star': isFavorite,
+    'glyphicon-star-empty': !isFavorite
+  }"
+  (click)="onClick()"
+  ></span>
+
+  <!-- ngClass is an attribute directive, ngClass takes
+    an object with key, value pairs.. key is class name
+    must be in quotes and value is expression that evaluates
+    to true in order to show the clas
+  -->
