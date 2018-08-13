@@ -1,11 +1,11 @@
-<form>
+<form #f="ngForm">
   <div class="form-group">
     <label for="courseName">Course Name</label>
-    <input type="text" id="courseName" class="form-control">
+    <input ngModel name="courseName" type="text" id="courseName" class="form-control">
   </div>
   <div class="form-group">
     <label for="category">Category</label>
-    <select name="category" id="category" class="form-control">
+    <select ngModel name="category" id="category" class="form-control">
       <option value=""></option>
       <option value="1">Development</option>
       <option value="2">Art</option>
@@ -14,8 +14,11 @@
   </div>
   <div class="checkbox">
     <label for="guarantee">
-      <input type="checkbox" id="guarantee"> 30-day money-back guarantee
+      <input ngModel name="guarantee" type="checkbox" id="guarantee"> 30-day money-back guarantee
     </label>
   </div>
+  <p>
+    {{ f.value | json }}
+  </p>
   <button class="btn btn-primary">Create</button>    
 </form>
