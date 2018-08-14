@@ -20,6 +20,9 @@ export class PostsComponent implements OnInit {
     this.service.getPosts()
       .subscribe(response => {
         this.posts = response.json();
+      }, error => {
+        alert('An unexpected error occurred.'); // real world use a toast notification, also want to log that error
+        console.log(error);
       })
   }
 
@@ -31,6 +34,9 @@ export class PostsComponent implements OnInit {
       .subscribe(response => {
         post['id'] = response.json().id;
         this.posts.splice(0, 0, post);
+      }, error => {
+        alert('An unexpected error occurred.'); // real world use a toast notification, also want to log that error
+        console.log(error);
       });
   }
 
@@ -38,6 +44,9 @@ export class PostsComponent implements OnInit {
     this.service.updatePost(post)
       .subscribe(response => {
         console.log(response.json());
+      }, error => {
+        alert('An unexpected error occurred.'); // real world use a toast notification, also want to log that error
+        console.log(error);
       })
   }
 
@@ -46,6 +55,9 @@ export class PostsComponent implements OnInit {
       .subscribe(response => {
         let index = this.posts.indexOf(post);
         this.posts.splice(index, 1);
+      }, error => {
+        alert('An unexpected error occurred.'); // real world use a toast notification, also want to log that error
+        console.log(error);
       });
   }
 }
