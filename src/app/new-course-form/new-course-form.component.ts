@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormArray, FormControl } from '@angular/forms';
+import { FormGroup, FormArray, FormControl, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'new-course-form',
@@ -7,23 +7,28 @@ import { FormGroup, FormArray, FormControl } from '@angular/forms';
   styleUrls: ['./new-course-form.component.css']
 })
 export class NewCourseFormComponent {
-  form = new FormGroup({
-    topics: new FormArray([])
-  });
+  form;
 
-  addTopic(topic: HTMLInputElement) {
-   this.topics.push(new FormControl(topic.value));
-    topic.value = '';
-  }
-
-  removeTopic(topic: FormControl) {
-    let index = this.topics.controls.indexOf(topic)
-    this.topics.removeAt(index);
-  }
-
-  get topics() {
-    return this.form.get('topics') as FormArray;
+  constructor(fb: FormBuilder){
+    this.form = fb.group({
+      name: ['', Validators.required],
+      contact: fb.group({
+        email: [],
+        phone: []
+      }),
+      topics: fb.array([])
+    })
   }
 }
 
 // use FormArray to work with an array of Form Controls
+
+// instead of initializing a form like below can just use form builder
+// form = new FormGroup({
+//   name: new FormControl('', Validators.required),
+//   contact: new FormGroup({
+//     email: new FormControl(),
+//     phone: new FormControl()
+//   }),
+//   topics: new FormArray([])
+// });
