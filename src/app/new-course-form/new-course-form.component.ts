@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormArray, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'new-course-form',
@@ -9,7 +9,8 @@ import { FormGroup, FormArray, FormControl, FormBuilder, Validators } from '@ang
 export class NewCourseFormComponent {
   form;
 
-  constructor(fb: FormBuilder){
+  constructor(private fb: FormBuilder){
+    console.log(fb);
     this.form = fb.group({
       name: ['', Validators.required],
       contact: fb.group({
