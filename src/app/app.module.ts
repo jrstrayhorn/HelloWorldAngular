@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms'; // need to add this to use ngModel for 2-way binding
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // need to add this to use ngModel for 2-way binding
 
 import { AppComponent } from './app.component';
 import { CoursesComponent } from './courses.component';
@@ -42,7 +42,8 @@ import { SignupFormComponent } from './signup-form/signup-form.component';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     CoursesService,
