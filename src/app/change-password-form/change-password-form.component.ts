@@ -12,7 +12,7 @@ export class ChangePasswordFormComponent {
   form = new FormGroup({
     oldPassword: new FormControl('', Validators.required, PasswordValidators.shouldMatchOldPassword),
     newPassword: new FormControl('', Validators.required),
-    confirmPassword: new FormControl('', Validators.required)
+    confirmPassword: new FormControl('', [Validators.required])
   });
 
   get oldPassword() {
@@ -25,6 +25,14 @@ export class ChangePasswordFormComponent {
 
   get confirmPassword() {
     return this.form.get('confirmPassword') as FormControl;
+  }
+
+  checkMatch() {
+    if (this.newPassword.value != this.confirmPassword.value) {
+      this.confirmPassword.setErrors({
+        passwordNotMatching: true
+      });
+    }
   }
 
 }
