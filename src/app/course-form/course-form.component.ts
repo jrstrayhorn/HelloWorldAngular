@@ -13,4 +13,8 @@ export class CourseFormComponent {
     { id: 3, name: "Language" },
   ]
 
+  submit(course) {
+    console.log(course)
+  }
+
 }
