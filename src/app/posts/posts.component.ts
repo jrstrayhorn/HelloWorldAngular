@@ -18,12 +18,14 @@ export class PostsComponent implements OnInit {
 
   ngOnInit(): void {
     this.service.getPosts()
-      .subscribe(response => {
-        this.posts = response.json();
-      }, error => {
-        alert('An unexpected error occurred.'); // real world use a toast notification, also want to log that error
-        console.log(error);
-      })
+      .subscribe(
+        response => {
+          this.posts = response.json();
+        }, 
+        error => {
+          alert('An unexpected error occurred.'); // real world use a toast notification, also want to log that error
+          console.log(error);
+        })
   }
 
   createPost(input: HTMLInputElement) {
@@ -31,33 +33,44 @@ export class PostsComponent implements OnInit {
     input.value = '';
 
     this.service.createPost(post)
-      .subscribe(response => {
-        post['id'] = response.json().id;
-        this.posts.splice(0, 0, post);
-      }, error => {
-        alert('An unexpected error occurred.'); // real world use a toast notification, also want to log that error
-        console.log(error);
-      });
+      .subscribe(
+        response => {
+          post['id'] = response.json().id;
+          this.posts.splice(0, 0, post);
+        }, 
+        error => {
+          alert('An unexpected error occurred.'); // real world use a toast notification, also want to log that error
+          console.log(error);
+        });
   }
 
   updatePost(post) {
     this.service.updatePost(post)
-      .subscribe(response => {
-        console.log(response.json());
-      }, error => {
-        alert('An unexpected error occurred.'); // real world use a toast notification, also want to log that error
-        console.log(error);
-      })
+      .subscribe(
+        response => {
+          console.log(response.json());
+        }, 
+        error => {
+          alert('An unexpected error occurred.'); // real world use a toast notification, also want to log that error
+          console.log(error);
+        })
   }
 
   deletePost(post) {
-    this.service.deletePost(post.id)
-      .subscribe(response => {
-        let index = this.posts.indexOf(post);
-        this.posts.splice(index, 1);
-      }, error => {
-        alert('An unexpected error occurred.'); // real world use a toast notification, also want to log that error
-        console.log(error);
-      });
+    this.service.deletePost(445)
+      .subscribe(
+        response => {
+          let index = this.posts.indexOf(post);
+          this.posts.splice(index, 1);
+        }, 
+        (error: Response) => {
+          if (error.status == 404)
+            alert('this post has already been deleted.');
+          else {
+            alert('An unexpected error occurred.'); // real world use a toast notification, also want to log that error
+            console.log(error);
+          }
+          
+        });
   }
 }
