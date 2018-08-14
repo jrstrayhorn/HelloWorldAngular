@@ -20,7 +20,23 @@ export class SignupFormComponent {
     password: new FormControl('', Validators.required)
   });
 
+  login() {
+    this.form.setErrors({
+      invalidLogin: true
+    });
+  }
+
   get username() {
     return this.form.get('username');
   }
 }
+
+// this is how you would really do login with service
+// login() {
+//   let isValid = authService.login(this.form.value);
+//   if (!isValid) {
+//     this.form.setErrors({
+//       invalidLogin: true
+//     })
+//   }
+// }
