@@ -1,4 +1,5 @@
 import { AbstractControl, ValidationErrors } from "@angular/forms";
+import { resolve } from "dns";
 
 export class UsernameValidators {
     static cannotContainSpace(control: AbstractControl) : ValidationErrors | null {
@@ -7,16 +8,16 @@ export class UsernameValidators {
         return null;
     }
 
-    static shouldBeUnique(control: AbstractControl) : ValidationErrors | null {
-        setTimeout(() => {
-            if (control.value == 'mosh')
-                return { shouldBeUnique: true }
-            return null;
-        }, 2000);
+    static shouldBeUnique(control: AbstractControl) : Promise<ValidationErrors | null> {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                if (control.value == 'mosh')
+                    resolve({ shouldBeUnique: true });
+                else 
+                    resolve(null);
+            }, 2000);
+        });
 
-        // this will not cause a typescript error but will not work because
-        // function will always return null
-        return null;
     }
 }
     // can also return a object to be retrieve like username.errors.minlength.requiredLength

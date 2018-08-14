@@ -9,11 +9,14 @@ import { UsernameValidators } from './username.validators';
 })
 export class SignupFormComponent {
   form = new FormGroup({
-    username: new FormControl('', [
+    username: new FormControl('', 
+    [
       Validators.required,
       Validators.minLength(3),
       UsernameValidators.cannotContainSpace
-    ]), // should use 'user-name' for key if using special characters
+    ],
+    UsernameValidators.shouldBeUnique
+  ), // should use 'user-name' for key if using special characters
     password: new FormControl('', Validators.required)
   });
 
