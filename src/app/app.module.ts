@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // need to add this to use ngModel for 2-way binding
 //import { HttpModule } from '@angular/http'; // need this module for http providers; this is deprecated
 import { HttpClientModule } from '@angular/common/http';
@@ -26,6 +26,7 @@ import { NewCourseFormComponent } from './new-course-form/new-course-form.compon
 import { ChangePasswordFormComponent } from './change-password-form/change-password-form.component';
 import { PostsComponent } from './posts/posts.component';
 import { PostService } from './services/post.service';
+import { AppErrorHandler } from './common/app-error-handler';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { PostService } from './services/post.service';
   providers: [
     CoursesService,
     AuthorService,
-    PostService // need to make sure to register service in app.module in order to use globally
+    PostService, // need to make sure to register service in app.module in order to use globally
+    { provide: ErrorHandler, useClass: AppErrorHandler} // telling Angular anywhere that is using ErrorHandler should use the custom AppErrorHandler class now
   ],
   bootstrap: [AppComponent]
 })

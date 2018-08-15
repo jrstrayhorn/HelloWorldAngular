@@ -24,10 +24,6 @@ export class PostsComponent implements OnInit {
       .subscribe(
         response => {
           this.posts = response;
-        }, 
-        error => {
-          alert('An unexpected error occurred.'); // real world use a toast notification, also want to log that error
-          console.log(error);
         })
   }
 
@@ -46,10 +42,7 @@ export class PostsComponent implements OnInit {
             alert('there was a bad input.');
             // this.form.setErrors(error.originalError);
           }
-          else {
-            alert('An unexpected error occurred.'); // real world use a toast notification, also want to log that error
-            console.log(error);
-          }
+          else throw error;
         });
   }
 
@@ -58,10 +51,6 @@ export class PostsComponent implements OnInit {
       .subscribe(
         response => {
           console.log(response);
-        }, 
-        error => {
-          alert('An unexpected error occurred.'); // real world use a toast notification, also want to log that error
-          console.log(error);
         })
   }
 
@@ -75,10 +64,7 @@ export class PostsComponent implements OnInit {
         (error: AppError) => {
           if (error instanceof NotFoundError)
             alert('this post has already been deleted.');
-          else {
-            alert('An unexpected error occurred.'); // real world use a toast notification, also want to log that error
-            console.log(error);
-          }
+          else throw error;
           
         });
   }
