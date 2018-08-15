@@ -27,6 +27,8 @@ import { ChangePasswordFormComponent } from './change-password-form/change-passw
 import { PostsComponent } from './posts/posts.component';
 import { PostService } from './services/post.service';
 import { AppErrorHandler } from './common/app-error-handler';
+import { FollowersComponent } from './followers/followers.component';
+import { FollowersService } from './services/followers.service';
 
 @NgModule({
   declarations: [
@@ -48,7 +50,8 @@ import { AppErrorHandler } from './common/app-error-handler';
     SignupFormComponent,
     NewCourseFormComponent,
     ChangePasswordFormComponent,
-    PostsComponent
+    PostsComponent,
+    FollowersComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +63,8 @@ import { AppErrorHandler } from './common/app-error-handler';
     CoursesService,
     AuthorService,
     PostService, // need to make sure to register service in app.module in order to use globally
-    { provide: ErrorHandler, useClass: AppErrorHandler} // telling Angular anywhere that is using ErrorHandler should use the custom AppErrorHandler class now
+    { provide: ErrorHandler, useClass: AppErrorHandler}, // telling Angular anywhere that is using ErrorHandler should use the custom AppErrorHandler class now
+    FollowersService
   ],
   bootstrap: [AppComponent]
 })
