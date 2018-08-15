@@ -11,7 +11,7 @@ import { BadInput } from '../common/bad-input';
   providedIn: 'root'
 })
 export class PostService {
-  private url = 'http://abcjsonplaceholder.typicode.com/posts';
+  private url = 'http://jsonplaceholder.typicode.com/posts';
 
   constructor(private http: HttpClient) { }
 
@@ -21,7 +21,8 @@ export class PostService {
         map(resp => {
           const data = <any[]>resp;
           return (data || []);
-        })
+        }),
+        catchError(this.handleError)
       );
   }
 
@@ -32,31 +33,29 @@ export class PostService {
           const data = <any>resp;
           return (data || {});
         }),
-        catchError((error: HttpErrorResponse) => {
-          console.log(error);
-          if (error.status == 400)
-            return throwError(new BadInput(error.error));
-          
-          return throwError(new AppError(error));
-        })
+        catchError(this.handleError)
       );
   }
 
   deletePost(id) {
     return this.http.delete(`${this.url}/${id}`)
-      .pipe(
-        catchError((error: HttpErrorResponse) => {
-          if (error.status == 404)
-            return throwError(new NotFoundError()); // legitimate error
-
-          return throwError(new AppError(error)); // log this on the server
-        })
-      )
+      .pipe(catchError(this.handleError))
     ;
   }
 
   // probably should be renamed to markPostAsRead or updatePostMarkAsRead
   updatePost(post) {
     return this.http.patch(`${this.url}/${post.id}`, JSON.stringify({ isRead: true }))
+      .pipe(catchError(this.handleError))
+  }
+
+  private handleError(error: HttpErrorResponse) {
+    if (error.status == 400)
+      return throwError(new BadInput(error.error));
+
+    if (error.status == 404)
+      return throwError(new NotFoundError()); // legitimate error
+
+    return throwError(new AppError(error)); // log this on the server
   }
 }
