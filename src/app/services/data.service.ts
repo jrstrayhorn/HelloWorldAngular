@@ -37,14 +37,24 @@ export class DataService {
 
   delete(id) {
     return this.http.delete(`${this.url}/${id}`)
-      .pipe(catchError(this.handleError))
+      .pipe(
+        map(resp => {
+            const data = <any>resp;
+            return (data || {});
+          }),  
+        catchError(this.handleError))
     ;
   }
 
   // probably should be renamed to markPostAsRead or updatePostMarkAsRead
   update(resource) {
     return this.http.patch(`${this.url}/${resource.id}`, JSON.stringify({ isRead: true }))
-      .pipe(catchError(this.handleError))
+      .pipe(
+        map(resp => {
+            const data = <any>resp;
+            return (data || {});
+          }),  
+        catchError(this.handleError))
   }
 
   private handleError(error: HttpErrorResponse) {
