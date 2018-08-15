@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PostService } from '../services/post.service';
 import { AppError } from '../common/app-error';
 import { NotFoundError } from '../common/not-found-error';
-import { BadRequestError } from '../common/bad-request-error';
+import { BadInput } from '../common/bad-input';
 
 @Component({
   selector: 'posts',
@@ -42,8 +42,9 @@ export class PostsComponent implements OnInit {
           this.posts.splice(0, 0, post);
         }, 
         (error: AppError) => {
-          if (error instanceof BadRequestError) {
-            alert('there was a bad request.');
+          if (error instanceof BadInput) {
+            alert('there was a bad input.');
+            // this.form.setErrors(error.originalError);
           }
           else {
             alert('An unexpected error occurred.'); // real world use a toast notification, also want to log that error

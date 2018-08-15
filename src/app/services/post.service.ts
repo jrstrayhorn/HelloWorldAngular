@@ -5,7 +5,7 @@ import { catchError, map } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { AppError } from '../common/app-error';
 import { NotFoundError } from '../common/not-found-error';
-import { BadRequestError } from '../common/bad-request-error';
+import { BadInput } from '../common/bad-input';
 
 @Injectable({
   providedIn: 'root'
@@ -33,8 +33,9 @@ export class PostService {
           return (data || {});
         }),
         catchError((error: HttpErrorResponse) => {
+          console.log(error);
           if (error.status == 400)
-            return throwError(new BadRequestError());
+            return throwError(new BadInput(error.error));
           
           return throwError(new AppError(error));
         })
