@@ -6,7 +6,7 @@ import { FollowersService } from '../services/followers.service';
   templateUrl: './followers.component.html',
   styleUrls: ['./followers.component.css']
 })
-export class FollowersComponent implements OnInit {
+export class GithubFollowersComponent implements OnInit {
   followers: any[];
   
   constructor(private service: FollowersService) { }

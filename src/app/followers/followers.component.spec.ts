@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FollowersComponent } from './followers.component';
+import { GithubFollowersComponent } from './followers.component';
 
 describe('FollowersComponent', () => {
-  let component: FollowersComponent;
-  let fixture: ComponentFixture<FollowersComponent>;
+  let component: GithubFollowersComponent;
+  let fixture: ComponentFixture<GithubFollowersComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FollowersComponent ]
+      declarations: [ GithubFollowersComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FollowersComponent);
+    fixture = TestBed.createComponent(GithubFollowersComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
