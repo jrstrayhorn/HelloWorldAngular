@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // need to add this to use ngModel for 2-way binding
-import { HttpModule } from '@angular/http'; // need this module for http providers
+//import { HttpModule } from '@angular/http'; // need this module for http providers; this is deprecated
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { CoursesComponent } from './courses.component';
@@ -52,7 +53,7 @@ import { PostService } from './services/post.service';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpModule
+    HttpClientModule
   ],
   providers: [
     CoursesService,
