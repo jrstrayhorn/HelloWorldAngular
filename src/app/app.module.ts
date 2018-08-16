@@ -34,6 +34,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { GithubProfileComponent } from './github-profile/github-profile.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { BlogArchiveListComponent } from './blog-archive-list/blog-archive-list.component';
+import { BlogArchiveDetailComponent } from './blog-archive-detail/blog-archive-detail.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +62,9 @@ import { NotFoundComponent } from './not-found/not-found.component';
     NavbarComponent,
     HomeComponent,
     GithubProfileComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    BlogArchiveListComponent,
+    BlogArchiveDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -70,19 +74,11 @@ import { NotFoundComponent } from './not-found/not-found.component';
     RouterModule.forRoot([
       { 
         path: '', 
-        component: HomeComponent 
+        component: BlogArchiveListComponent 
       },
       { 
-        path: 'followers/:id/:username', 
-        component: GithubProfileComponent 
-      },
-      { 
-        path: 'followers', 
-        component: GithubFollowersComponent 
-      },
-      { 
-        path: 'posts', 
-        component: PostsComponent 
+        path: 'archive/:year/:month', 
+        component: BlogArchiveDetailComponent 
       },
       { 
         path: '**', 
