@@ -8,6 +8,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class BlogArchiveDetailComponent implements OnInit {
   title: string;
+  year: number;
+  month: number;
 
   constructor(
     private route: ActivatedRoute,
@@ -17,7 +19,8 @@ export class BlogArchiveDetailComponent implements OnInit {
   ngOnInit() {
     this.route.paramMap
       .subscribe(params => {
-        this.title = `Archive for ${params.get('year')}/${params.get('month')}`
+        this.year = +params.get('year');
+        this.month = +params.get('month');
       })
   }
 
