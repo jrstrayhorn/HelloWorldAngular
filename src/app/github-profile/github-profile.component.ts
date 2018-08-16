@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-github-profile',
@@ -8,7 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class GithubProfileComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
     // can use snapshot if 100% sure users will navigate away from component don't care about component being destroyed
@@ -22,6 +22,12 @@ export class GithubProfileComponent implements OnInit {
     //     // let id = +params.get('id'); // change strin gto id
     //     // service.get(id);
     //   })
+  }
+
+  submit() {
+    this.router.navigate(['/followers'], {
+      queryParams: { page: 1, order: 'newest' }
+    });
   }
 
 }
