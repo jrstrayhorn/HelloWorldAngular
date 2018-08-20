@@ -37,6 +37,10 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { BlogArchiveListComponent } from './blog-archive-list/blog-archive-list.component';
 import { BlogArchiveDetailComponent } from './blog-archive-detail/blog-archive-detail.component';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { MatCheckboxModule } from '@angular/material/checkbox';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -68,6 +72,8 @@ import { BlogArchiveDetailComponent } from './blog-archive-detail/blog-archive-d
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    MatCheckboxModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
