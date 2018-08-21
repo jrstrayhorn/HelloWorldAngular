@@ -10,4 +10,9 @@ export class AppComponent {
     title: 'Review applications',
     assignee: null
   }
+  isChecked = true;
+
+  onChange($event) {
+    console.log($event);
+  }
 }
