@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MAT_SELECT_SCROLL_STRATEGY_PROVIDER_FACTORY } from '@angular/material/select';
+import { timer } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +7,25 @@ import { MAT_SELECT_SCROLL_STRATEGY_PROVIDER_FACTORY } from '@angular/material/s
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  // progress = 0;
+  // timer;
+  isLoading = false;
+
+  constructor() {
+    // // how to setup progress over time
+    // this.timer = setInterval(() => {
+    //   this.progress++;
+    //   if (this.progress == 100) clearInterval(this.timer);
+    // }, 20);
+    this.isLoading = true;
+    this.getCourses()
+      .subscribe(x => this.isLoading = false);
+  }
+
+  getCourses() {
+      return timer(2000);
+  }
+
   task = {
     title: 'Review applications',
     assignee: null
