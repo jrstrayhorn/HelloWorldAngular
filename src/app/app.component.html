@@ -71,4 +71,24 @@
 
 <br>
 
+<mat-chip-list>
+    <mat-chip selected="true" color="accent">One</mat-chip>
+</mat-chip-list>
+
+<mat-chip-list [multiple]="true">
+    <mat-chip
+        *ngFor="let color of colors"
+        (click)="color.selected = !color.selected"
+        [selected]="color.selected"
+    >{{ color.name }}</mat-chip>
+</mat-chip-list>
+
+<mat-chip-list>
+    <mat-chip
+        *ngFor="let category of categories"
+        (click)="selectCategory(category)"
+        [selected]="category.selected"
+    >{{ category.name }}</mat-chip>
+</mat-chip-list>
+
 

@@ -47,6 +47,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
+import {MatChipsModule} from '@angular/material/chips';
 
 @NgModule({
   declarations: [
@@ -88,6 +89,7 @@ import {MatButtonModule} from '@angular/material/button';
     MatNativeDateModule,
     MatIconModule,
     MatButtonModule,
+    MatChipsModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,

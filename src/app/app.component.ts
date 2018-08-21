@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MAT_SELECT_SCROLL_STRATEGY_PROVIDER_FACTORY } from '@angular/material/select';
 
 @Component({
   selector: 'app-root',
@@ -22,6 +23,20 @@ export class AppComponent {
 
   minDate = new Date(2017, 1, 1);
   maxDate = new Date(2017, 8, 1);
+
+  categories = [
+    { name: 'Beginner' },
+    { name: 'Intermediate' },
+    { name: 'Advanced' },
+  ]
+
+  selectCategory(category) {
+    this.categories
+      .filter(c => c != category)
+      .forEach(c => c['selected'] = false);
+
+    category.selected = !category.selected;
+  }
 
   onChange($event) {
     console.log($event);
