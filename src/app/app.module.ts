@@ -40,6 +40,7 @@ import { BlogArchiveDetailComponent } from './blog-archive-detail/blog-archive-d
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatRadioModule } from '@angular/material/radio';
 
 @NgModule({
   declarations: [
@@ -74,6 +75,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     BrowserModule,
     BrowserAnimationsModule,
     MatCheckboxModule,
+    MatRadioModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
