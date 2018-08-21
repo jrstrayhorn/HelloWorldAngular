@@ -42,6 +42,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
+import {MatInputModule, MatInput} from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -78,6 +79,7 @@ import { MatSelectModule } from '@angular/material/select';
     MatCheckboxModule,
     MatRadioModule,
     MatSelectModule,
+    MatInputModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,

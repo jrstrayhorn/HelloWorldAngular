@@ -22,3 +22,19 @@
         [value]="color.id">{{ color.name }}</mat-option>
     </mat-select>
 </mat-form-field>
+
+<br>
+
+<mat-form-field>
+    <input 
+        ngModel
+        #username="ngModel"
+        name="username"
+        matInput placeholder="Username" required>
+    <mat-hint>Type a unique username.</mat-hint>
+    <span matSuffix>@domain.com</span>
+    <span matPrefix>admin.</span>
+    <mat-error *ngIf="username.invalid && username.errors.required">
+        The username field is required.
+    </mat-error>
+</mat-form-field>
