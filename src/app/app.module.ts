@@ -50,6 +50,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatTabsModule} from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -94,6 +95,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     MatChipsModule,
     MatProgressSpinnerModule,
     MatTooltipModule,
+    MatTabsModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
