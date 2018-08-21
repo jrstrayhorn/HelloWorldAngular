@@ -8,7 +8,17 @@
 
 <div *ngIf="showDetails.checked">Some details...</div>
 
-<mat-radio-group value="0">
+<mat-radio-group value="0"> <!-- How to select value by default -->
     <mat-radio-button value="1">Male</mat-radio-button>
     <mat-radio-button value="0">Female</mat-radio-button>
 </mat-radio-group>
+
+<br>
+
+<mat-form-field>
+    <mat-select [(ngModel)]="color"> <!-- How to select value by default -->
+        <mat-option 
+        *ngFor="let color of colors"
+        [value]="color.id">{{ color.name }}</mat-option>
+    </mat-select>
+</mat-form-field>

@@ -12,6 +12,14 @@ export class AppComponent {
   }
   isChecked = true;
 
+  colors = [
+    { id: 1, name: 'Red' },
+    { id: 2, name: 'Green' },
+    { id: 3, name: 'Blue' }
+  ]
+
+  color = 2;
+
   onChange($event) {
     console.log($event);
   }
