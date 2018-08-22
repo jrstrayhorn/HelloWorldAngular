@@ -51,6 +51,8 @@ import {MatChipsModule} from '@angular/material/chips';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTabsModule} from '@angular/material/tabs';
+import {MatDialogModule} from '@angular/material/dialog';
+import { EditCourseComponent } from './edit-course/edit-course.component';
 
 @NgModule({
   declarations: [
@@ -79,7 +81,11 @@ import {MatTabsModule} from '@angular/material/tabs';
     GithubProfileComponent,
     NotFoundComponent,
     BlogArchiveListComponent,
-    BlogArchiveDetailComponent
+    BlogArchiveDetailComponent,
+    EditCourseComponent
+  ],
+  entryComponents: [
+    EditCourseComponent
   ],
   imports: [
     BrowserModule,
@@ -96,6 +102,7 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatProgressSpinnerModule,
     MatTooltipModule,
     MatTabsModule,
+    MatDialogModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
