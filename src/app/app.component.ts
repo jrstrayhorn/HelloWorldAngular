@@ -24,8 +24,11 @@ export class AppComponent {
       .subscribe(x => this.isLoading = false);
   }
 
+  // in order to pass data to dialog, #1 add data as second argument to dialog open method
   openDialog() {
-    this.dialog.open(EditCourseComponent)
+    this.dialog.open(EditCourseComponent, {
+      data: { courseId: 1 }
+    })
       .afterClosed()
       .subscribe(result => console.log(result));
   }

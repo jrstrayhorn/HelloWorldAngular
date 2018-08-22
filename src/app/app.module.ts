@@ -126,8 +126,12 @@ import { EditCourseComponent } from './edit-course/edit-course.component';
     AuthorService,
     PostService, // need to make sure to register service in app.module in order to use globally
     { provide: ErrorHandler, useClass: AppErrorHandler}, // telling Angular anywhere that is using ErrorHandler should use the custom AppErrorHandler class now
+      // provide is a injection token, non class parameter need to create injection token because type can't be used as a token
     FollowersService
   ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+//{ provide: DIALOG_DATA, useValue: {} }, // telling angular whenever you see DIALOG_DATA pass in an empty object for dependency injection
+//
